@@ -1,0 +1,113 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+		controllerName="sap.usingmanifest.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:l="sap.ui.layout">
+	<semantic:DetailPage title="Leave Request Details" showNavButton="false" navButtonPress="onNavPress" id="detailPage">
+		<semantic:content>
+			<ObjectHeader
+					id="objectHeader1"
+					title="{oDm>/name}"
+					number="{
+								path: 'oDm>/leaveApplied'
+							} Leaves"
+					>
+			<firstStatus>
+						<ObjectStatus
+							text="Applied On {oDm>/appliedOn}"/>
+					</firstStatus> 
+						<secondStatus>
+						<ObjectStatus
+							text="From {oDm>/fromDate} To {oDm>/toDate}"/>
+					</secondStatus>
+					<attributes>
+						<ObjectAttribute text="Employee Id {oDm>/id}" />
+					</attributes>
+			</ObjectHeader>
+			<IconTabBar
+					id="iconTabBar"
+					class="sapUiResponsiveContentPadding"
+					expanded="true">
+				<items>
+					<IconTabFilter
+							id="iconTabBarFilter1"
+							
+							icon="sap-icon://hint"
+							tooltip="{i18n>detailIconTabBarInfo}">
+							<f:SimpleForm id="form"
+								editable="false"
+								layout="ResponsiveGridLayout"
+								title="Leave Details of {oDm>/name}">
+									<f:content>
+										<VBox class="sapUiContentPadding">
+									<!--	<Label text="Employee ID" labelFor="employeeid" id="__label0" design="Bold">
+											<layoutData>
+												<l:GridData span="L2 M2 S4" />
+											</layoutData>
+										</Label>
+										<Text text="{empobj>/id}" id="employeeid">
+										    <layoutData>
+												<l:GridData span="L4 M4 S8" />
+											</layoutData>
+										</Text>-->
+										
+										<!--<Label id="__label3" text="No.of Leaves Applied" labelFor="leaveapplied" design="Bold">
+											<layoutData>
+												<l:GridData span="L2 M2 S4" />
+											</layoutData>
+										</Label>
+										<Text text="{empobj>/leaveApplied}">
+										    <layoutData>
+												<l:GridData span="L4 M4 S8" />
+											</layoutData>
+										</Text>-->
+										<HBox>
+										<Label text="Leave Balance" labelFor="leavebalance" id="__label5" design="Bold">
+											<layoutData>
+												<l:GridData span="L2 M2 S4" />
+											</layoutData>
+										</Label>
+										<Text text="{oDm>/leaveBalance}" class="sapUiSmallMarginBottom">
+										    <layoutData>
+												<l:GridData span="L4 M4 S8" />
+											</layoutData>
+										</Text>
+										</HBox>
+										<HBox>
+										<Label text="Reason For Leave" labelFor="leavereason" id="__label7" design="Bold">
+											<layoutData>
+												<l:GridData span="L2 M2 S4" />
+											</layoutData>
+										</Label>
+										<Text text="{oDm>/leaveReason}" class="sapUiSmallMarginBottom">
+										    <layoutData>
+												<l:GridData span="L4 M4 S8" />
+											</layoutData>
+										</Text>
+										</HBox>
+										<HBox>
+										<Label text="Type of Leave" labelFor="leavetype" design="Bold">
+											<layoutData>
+												<l:GridData span="L2 M2 S4" />
+											</layoutData>
+										</Label>
+										<Text text="{oDm>/leaveType}">
+										    <layoutData>
+												<l:GridData span="L4 M4 S8" />
+											</layoutData>
+										</Text>
+										</HBox>
+										</VBox>
+									</f:content>
+								</f:SimpleForm>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:positiveAction>
+					<semantic:PositiveAction text="Approve" icon="sap-icon://accept" press="onApproveButtonPress"/>
+				</semantic:positiveAction>
+				<semantic:negativeAction>
+					<semantic:NegativeAction text="Reject" icon="sap-icon://sys-cancel-2" press="onRejectButtonPress"/>
+				</semantic:negativeAction>
+	</semantic:DetailPage>
+</core:View>

@@ -1,0 +1,71 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+		controllerName="sap.usingmanifest.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:MasterPage showNavButton="false"  id="masterPage">
+		
+			<semantic:subHeader>
+				<Bar>
+					<contentLeft>
+						<SearchField  id="_searchField" liveChange="onSearch" width="auto" showRefreshButton="true"></SearchField>
+					</contentLeft>
+					<contentRight>
+						<Switch id="__switch0" customTextOff="" customTextOn="" state="false" width="50px" change="onChange"/>
+					</contentRight>
+				</Bar>
+			</semantic:subHeader>
+			
+			<semantic:sort>
+				<semantic:SortSelect change="onSortPress" id="mysort" selectedKey="ID">
+					<core:Item key="ID" id="ID" text=" Sort By ID(Default)"/>
+					<core:Item key="Name" id="Name" text="Sort By Name"/>
+				</semantic:SortSelect>
+			</semantic:sort>
+			<semantic:filter>
+					<semantic:FilterAction id="filter" press="onOpenViewSettings"/>
+			</semantic:filter>
+			<semantic:group>
+					<semantic:GroupSelect id="group" selectedKey="None" change="onGroup">
+						<core:Item id="masterGroupNone" key="None" text="(Group by None)"/>
+						<core:Item id="masterGroup1" key="id" text="Group By id"/>
+					</semantic:GroupSelect>
+			</semantic:group>
+			<semantic:content>
+					<List
+					id="idList"
+					updateFinished = "onUpdate"
+					items="{myModel>/requests}"
+					growing="true"
+					selectionChange="onSelectionChange"
+					mode="SingleSelectMaster"
+					includeItemInSelection="true" 
+					itemSelect="onItemSelect">
+					<infoToolbar>
+						<Toolbar
+							visible="false"
+							id="idInfoToolbar" >
+							<Label id="idFilterLabel"/>
+						</Toolbar>
+					</infoToolbar>
+					<items>
+						<ObjectListItem
+								type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
+								title="{myModel>name}"
+								number= "{
+									path: 'myModel>leaveApplied'
+								}"
+								>
+							<!-- <firstStatus>
+								<ObjectStatus
+									text="{Erdat}"/>
+							</firstStatus> -->
+							<attributes>
+								<ObjectAttribute text="From : {myModel>fromDate}" />
+								<ObjectAttribute text="To : {myModel>toDate}" />
+							</attributes>
+						</ObjectListItem>
+					</items>
+				</List>	
+			</semantic:content>
+			
+		
+	</semantic:MasterPage>
+</core:View>

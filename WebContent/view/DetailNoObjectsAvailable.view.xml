@@ -1,0 +1,16 @@
+<mvc:View
+	controllerName="sap.usingmanifest.controller.DetailNoObjectsAvailable"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+
+	<MessagePage
+		id="page"
+		title="No Data"
+		text="Sorry, There is no data available as there is no requests in the list"
+		icon="{sap-icon://product}"
+		description=""
+		showNavButton="{device>/system/phone}"
+		navButtonPress="onNavBack">
+	</MessagePage>
+
+</mvc:View>

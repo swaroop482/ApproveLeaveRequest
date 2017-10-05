@@ -1,0 +1,11 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+  controllerName="sap.usingmanifest.controller.SplitApp" xmlns:html="http://www.w3.org/1999/xhtml">
+  <SplitApp id="splitApp">
+  <masterPages>
+  <mvc:XMLView viewName="sap.usingmanifest.view.Master" id="Master"/>
+  </masterPages>
+  <detailPages>
+  <mvc:XMLView viewName="sap.usingmanifest.view.Detail" id="Detail"/>
+  </detailPages>
+  </SplitApp>
+</core:View>

@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog title="Ascending/Descending" id="sortType" width="auto">
+		<content>
+			<l:VerticalLayout>
+						<RadioButton id="ASC" text="ASC (Default)" select="onRadioSelect" />
+						<RadioButton id="DSC" text="DSC" select="onRadioSelect" />					
+						<Button id="sortTypeCancel"  text="cancel" width="auto" class="sapUiSmallMarginBegin" press="onCloseDialog"/>
+			</l:VerticalLayout>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

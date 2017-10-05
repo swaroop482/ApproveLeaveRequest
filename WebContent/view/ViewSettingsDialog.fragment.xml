@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+
+	<ViewSettingsDialog
+			id="viewSettingsDialog"
+			confirm="onConfirmViewSettingsDialog"
+			resetFilters="onViewSettingsDialogResetFilters">
+		<filterItems>
+			<ViewSettingsFilterItem
+					id="filterItems"
+					text="Leave Applied"
+					key="FilterID"
+					multiSelect="false">
+				<items>
+					<ViewSettingsItem
+							text="LeaveApplied LessThan 4"
+							key="Filter1"
+							id="viewFilter1"/>
+					<ViewSettingsItem
+							text="LeaveApplied GreaterThan 4"
+							key="Filter2"
+							id="viewFilter2"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+
+</core:FragmentDefinition>
